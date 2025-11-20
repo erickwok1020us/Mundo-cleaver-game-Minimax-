@@ -11,13 +11,13 @@
  *    - No waiting for server confirmation
  * 
  * 2. 🎯 SMOOTH INTERPOLATION
- *    - 100ms interpolation delay like LoL
+ *    - Optimized interpolation delay for smooth performance
  *    - Natural movement transitions
  *    - No visible stuttering
  * 
  * 3. 🔄 SMART RECONCILIATION
  *    - Correct predictions with minimal visual impact
- *    - Small errors: smooth correction (50ms)
+ *    - Small errors: smooth correction (20ms)
  *    - Large errors: immediate correction
  * 
  * 4. 📡 OPTIMIZED NETWORKING
@@ -32,7 +32,7 @@
  * 3. Deploy and test - you should see immediate improvement!
  */
 
-const CDN_BASE_URL = 'https://pub-2d994ab08222d5426bad338ecb218683d8.r2.dev';
+const CDN_BASE_URL = 'https://pub-2d994ab822d5426bad338ecb218683d8.r2.dev';
 
 // Load LOL-level network manager first
 if (typeof LOLLevelNetworkManager === 'undefined') {
@@ -146,7 +146,7 @@ async function preloadGameAssets() {
         
         try {
             const mapLoader = new THREE.GLTFLoader();
-            const mapUrl = `${CDN_BASE_URL}/Map.glb`;
+            const mapUrl = `${CDN_BASE_URL}/new_map.glb`;
             
             updateInitialLoadingProgress(85, 'Loading map...', 'Processing GLB file...');
             
@@ -240,11 +240,11 @@ class MundoKnifeGame3D {
         this.opponentSnapshots = [];
         this.snapshotLimit = 32;
         
-        // Enhanced interpolation settings (LoL-style)
-        this.baseInterpolationDelay = 100;  // ⚡ Increased to 100ms (LoL standard)
-        this.interpolationDelay = 100;
-        this.minInterpolationDelay = 50;
-        this.maxInterpolationDelay = 150;
+        // Enhanced interpolation settings (optimized for performance)
+        this.baseInterpolationDelay = 30;  // ⚡ Optimized for smooth movement
+        this.interpolationDelay = 30;
+        this.minInterpolationDelay = 20;
+        this.maxInterpolationDelay = 70;
         
         // Enhanced network statistics
         this.networkStats = {
